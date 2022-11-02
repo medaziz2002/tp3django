@@ -1,0 +1,35 @@
+<html>
+<body>
+<h1>Liste des articles</h1>
+<table border="1">
+<thead>
+<tr>
+<td>ID</td>
+<td>Nom</td>
+<td>Societe de création</td>
+<td>prix(DT)</td>
+<td>Date de création</td>
+<td>Satisfaction d'un client</td>
+<td>Action</td>
+</tr>
+</thead>
+<tbody>
+{% for a in prod %}
+<tr>
+<td>{{ a.id }}</td>
+<td>{{ a.nom }}</td>
+<td>{{ a.realisateur }}</td>
+<td>{{ a.prix }}</td>
+<td>{{ a.datedecreation }}</td>
+{% if a.prix < 1000 %} 
+<td style="color:green">prix raisonnable</td>
+{% else %}
+<td style="color:brown">Trés cher</td>
+{% endif %}
+<td><a href="del_prod/{{ a.id }}"> X </a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</body>
+</html>
